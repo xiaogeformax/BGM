@@ -11,10 +11,15 @@ public class StartPanel : MonoBehaviour
 
 	public Text Txt_Status;
 	// Use this for initialization
+
+	public Button Btn_bg;
+	public GameObject btnObj;
+	public GameObject OpenObj;
 	void Start () {
 		Btn_Launch.onClick.AddListener(LaunchPlayer);	
 		Btn_Move.onClick.AddListener(MovePlayer);	
 		Btn_Start.onClick.AddListener(StartGame);
+		Btn_bg.onClick.AddListener(ClickBg);
 	}
 
 	void LaunchPlayer()
@@ -45,5 +50,13 @@ public class StartPanel : MonoBehaviour
 	{
 		Btn_Move.GetComponent<Button>().interactable =false;
 	}
+	
+	public void ClickBg()
+	{
+		btnObj.SetActive(true);
+		OpenObj.SetActive(false);
+		Btn_bg.onClick.RemoveAllListeners();
+	}
+	
 	
 }
